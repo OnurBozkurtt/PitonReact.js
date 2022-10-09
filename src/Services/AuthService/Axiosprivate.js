@@ -12,8 +12,8 @@ const useAxiosPrivate = () => {
     useEffect(() => {
         const requestIntercept = kullaniciServis.interceptors.request.use(
             config => {
-                if (!config.headers['Authorization']) {
-                    config.headers['Authorization'] = `Bearer ${auth?.accessToken}`;
+                if (!config.headers['access-token']) {
+                    config.headers['access-token'] = `Bearer ${auth?.accessToken}`;
                 }
                 return config;
             }, (error) => Promise.reject(error)
@@ -26,7 +26,7 @@ const useAxiosPrivate = () => {
                 if (error?.response?.status === 403 && !prevReq?.sent) {
                     prevReq.sent = true;
                     const newAccessToken = await refresh();
-                    prevReq.headers['Authorization'] = `Bearer ${newAccessToken}`;
+                    prevReq.headers['access-token'] = `Bearer ${newAccessToken}`;
                     return kullaniciServis(prevReq);
                 }
                 return Promise.reject(error);
