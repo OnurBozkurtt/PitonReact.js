@@ -31,10 +31,10 @@ export const Product = () => {
     useEffect((e) => {
         try {
             axios.get(
-                "https://assignment-api.piton.com.tr/api/v1/product/all",
+                "/api/v1/product/all",
                 JSON.stringify(e),
                 {
-                    headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`, 'Access-Control-Allow-Origin': '*' },
+                    headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}`, 'Access-Control-Allow-Origin': '*' },
                     withCredentials: true,
                 }
             )

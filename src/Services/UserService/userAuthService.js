@@ -2,7 +2,7 @@ import userFunc from "./userService";
 export default function kullaniciServis() {
 
     const registerServ = (successCallback, errorCallback,) => {
-        if (localStorage.getItem("user")) {
+        if (localStorage.getItem("access-token")) {
             const opt = {
                 callbackSuccess: successCallback,
                 callbackError: errorCallback,
@@ -10,7 +10,7 @@ export default function kullaniciServis() {
                 url: "https://assignment-api.piton.com.tr/api/v1/user/register",
                 params: {},
                 data: {},
-                headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}` }
+                headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}` }
             };
 
             userFunc(opt);
@@ -20,17 +20,17 @@ export default function kullaniciServis() {
     };
 
     const loginServ = (successCallback, errorCallback, id) => {
-        if (localStorage.getItem("user")) {
+        if (localStorage.getItem("access-token")) {
 
 
             const opt = {
                 callbackSuccess: successCallback,
                 callbackError: errorCallback,
                 method: "POST",
-                url: "https://assignment-api.piton.com.tr/api/v1/user/login",
+                url: "/api/v1/user/login",
                 params: {},
                 data: {},
-                headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}` }
+                headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}` }
             };
 
             userFunc(opt);

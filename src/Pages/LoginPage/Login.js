@@ -13,7 +13,7 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import Axios from "../../Services/AuthService/Axios";
 
-export const Giris = () => {
+export const Login = () => {
     const defaultValues = {
         email: "",
         password: "",
@@ -27,7 +27,7 @@ export const Giris = () => {
     const HandleLogin = (e) => {
         try {
             Axios.post(
-                "https://assignment-api.piton.com.tr/api/v1/user/login",
+                "/api/v1/user/login",
                 JSON.stringify(e),
                 {
                     headers: { "Content-Type": "application/json", 'Access-Control-Allow-Origin': '*' },
@@ -35,7 +35,7 @@ export const Giris = () => {
                 }
             )
                 .then((response) => {
-                    localStorage.setItem("user", JSON.stringify(response?.data));
+                    localStorage.setItem("access-token", JSON.stringify(response?.data));
                     console.log(JSON.stringify(response?.data));
                     console.log(JSON.stringify(response));
                     console.log("Giriş Başarılı", response);
@@ -129,4 +129,4 @@ export const Giris = () => {
         </div>
     );
 };
-export default Giris;
+export default Login;

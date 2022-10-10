@@ -33,7 +33,7 @@ export const Register = () => {
     const HandleSignUp = (e) => {
         try {
             Axios.post(
-                "https://assignment-api.piton.com.tr/api/v1/user/register",
+                "/api/v1/user/register",
                 JSON.stringify(e),
                 {
                     headers: {
@@ -44,12 +44,12 @@ export const Register = () => {
                 }
             )
                 .then((response) => {
-                    localStorage.setItem("user", JSON.stringify(response?.data));
+                    localStorage.setItem("access-token", JSON.stringify(response?.data));
                     console.log(JSON.stringify(response?.data));
                     console.log(JSON.stringify(response));
                     console.log("Registeration Successfull", response);
 
-                    window.location.href = "Giris";
+                    window.location.href = "Login";
                 })
                 .catch((error) => {
                     console.error(error);

@@ -21,10 +21,10 @@ function productFunc(opts) {
         ...opts,
     };
     axios(options).then((resp) => {
-        const user = StoreToken;
+        const accessToken = StoreToken;
         if (resp.status === 200) {
-            localStorage.getItem(user);
-            console.log('AXIOS RESPONSE Success! ->', resp.data.user);
+            localStorage.getItem(accessToken);
+            console.log('AXIOS RESPONSE Success! ->', resp.data.accessToken);
             if (opts.callbackSuccess) { opts.callbackSuccess(resp.data); }
         }
     }).catch((error) => {
