@@ -7,7 +7,7 @@ export default function kullaniciServis() {
                 callbackSuccess: successCallback,
                 callbackError: errorCallback,
                 method: "POST",
-                url: "https://assignment-api.piton.com.tr/api/v1/user/register",
+                url: "/api/v1/user/register",
                 params: {},
                 data: {},
                 headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}` }

@@ -16,6 +16,9 @@ import { Link } from "react-router-dom";
 import Axios from "../../Services/AuthService/Axios";
 import { InputMask } from "primereact/inputmask";
 
+//Not sadece gerekli verileri kullanabiliyoruz.
+//confirm password değerini girdiğimizde 422 hatası geliyor.
+
 export const Register = () => {
     const [val4, setVal4] = useState();
     const [showMessage, setShowMessage] = useState(false);
@@ -23,7 +26,7 @@ export const Register = () => {
         name: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        // confirmPassword: "",
     };
     const {
         control,
@@ -217,7 +220,7 @@ export const Register = () => {
                             </span>
                             {getFormErrorMessage("password")}
                         </div>
-                        <div className="field">
+                        {/* <div className="field">
                             <span className="p-float-label">
                                 <Controller
                                     name="confirmPassword"
@@ -243,7 +246,7 @@ export const Register = () => {
                                 </label>
                             </span>
                             {getFormErrorMessage("confirmPassword")}
-                        </div>
+                        </div> */}
                         <Button
                             onClick={HandleSignUp}
                             type="submit"
