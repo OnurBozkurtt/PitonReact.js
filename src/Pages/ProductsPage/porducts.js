@@ -12,6 +12,7 @@ import { Tooltip } from 'primereact/tooltip';
 import PaginatorRapor from './Pagionator';
 import axios from 'axios';
 import productFunc from '../../Services/ProductService/productFunc';
+import productAuthService from '../../Services/ProductService/productAuthService';
 
 
 export const Product = () => {
@@ -29,22 +30,14 @@ export const Product = () => {
         { field: 'likes', header: 'Likes' }
     ];
 
-    useEffect((e) => {
-        if (localStorage.getItem("access-token")) {
-            const opt = {
-                method: "GET",
-                url: "/api/v1/product/all",
-                params: {},
-                data: {},
-                headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}` }
-            };
+    useEffect(() => {
+        const successCallback = (e) => {
+            setProducts(e);
+        };
 
-            productFunc(opt);
-        } else {
-            console.warn("accesstoken not exist")
-        }
-
-    }, [products])
+        const errorCallback = (evt) => { };
+        productAuthService().productsAll(successCallback, errorCallback);
+    }, []);
     const exportColumns = cols.map(col => ({ title: col.header, dataKey: col.field }));
 
     const exportCSV = (selectionOnly) => {
