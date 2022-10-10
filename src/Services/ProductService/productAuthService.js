@@ -1,4 +1,4 @@
-import haritaFunc from "../HaritaServisleri/Haritafunc";
+import productFunc from "../ProductService/productFunc";
 export default function productAuthService() {
 
     const productsAll = (successCallback, errorCallback,) => {
@@ -13,7 +13,7 @@ export default function productAuthService() {
                 headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}` }
             };
 
-            haritaFunc(opt);
+            productFunc(opt);
         } else {
             console.warn("accesstoken not exist")
         }
@@ -34,7 +34,7 @@ export default function productAuthService() {
                 headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}`, 'Access-Control-Allow-Origin': '*' }
             };
 
-            haritaFunc(opt);
+            productFunc(opt);
 
         } else {
             console.warn("accesstoken not exist")

@@ -11,6 +11,7 @@ import { Button } from 'primereact/button';
 import { Tooltip } from 'primereact/tooltip';
 import PaginatorRapor from './Pagionator';
 import axios from 'axios';
+import productFunc from '../../Services/ProductService/productFunc';
 
 
 export const Product = () => {
@@ -29,21 +30,20 @@ export const Product = () => {
     ];
 
     useEffect((e) => {
-        try {
-            axios.get(
-                "/api/v1/product/all",
-                JSON.stringify(e),
-                {
-                    headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}`, 'Access-Control-Allow-Origin': '*' },
-                    withCredentials: true,
-                }
-            )
-                .then(response => setProducts(response.data.products))
+        if (localStorage.getItem("access-token")) {
+            const opt = {
+                method: "GET",
+                url: "/api/v1/product/all",
+                params: {},
+                data: {},
+                headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("access-token")).accessToken}` }
+            };
 
-                .catch((error) => {
-                    console.error(error);
-                });
-        } catch (err) { }
+            productFunc(opt);
+        } else {
+            console.warn("accesstoken not exist")
+        }
+
     }, [products])
     const exportColumns = cols.map(col => ({ title: col.header, dataKey: col.field }));
 

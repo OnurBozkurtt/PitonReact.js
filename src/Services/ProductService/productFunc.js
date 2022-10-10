@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import StoreToken from '../../Servisler/AuthServisleri/StoreToken';
+import StoreToken from '../../Services/AuthService/StoreToken';
 
 /**
  * @description istek atma fonksiyounu
