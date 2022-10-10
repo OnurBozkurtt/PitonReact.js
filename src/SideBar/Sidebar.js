@@ -21,14 +21,14 @@ const SideBar = () => {
         <div>
             <div className="card">
                 <Sidebar visible={visibleLeft} onHide={() => setVisibleLeft(false)}>
-                    {localStorage.getItem('user') != 'undefined' && localStorage.getItem('user') != null ? (<>
+                    {localStorage.getItem('user') != 'undefined' && localStorage.getItem('access-token') != null ? (<>
 
                         <Link to={"https://assignment-api.piton.com.tr/api/v1/product/all"}>
-                            <button className='pi pi-map'> product</button>
+                            <button className='pi pi-table'> product</button>
                         </Link><br /><br /><br />
 
                         <Link to={"https://assignment-api.piton.com.tr/api/v1/product/get/id"}>
-                            <button className='pi pi-download'> productDetail</button>
+                            <button className='pi pi-th-large'> productDetail</button>
                         </Link><br /><br /><br />
 
                         <button className='pi pi-sign-out' onClick={Logout}>Logout</button>

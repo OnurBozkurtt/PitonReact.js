@@ -237,7 +237,7 @@ img.flag {
 .pi-sign-in:hover{
     background-color: #9d9e9d;
 }
-.pi-map{
+.pi-table{
     background-color: #ffffff; /* Green */
     border: none;
     color: rgb(0, 0, 0);
@@ -248,8 +248,21 @@ img.flag {
     font-size: 22px;
     cursor: pointer;
 }
+.pi-table:hover{
+    background: linear-gradient(120deg, #6366F1,#6366F1);
+    overflow: hidden;
+    background-color: #000000; 
+    border: none;
+    border-radius: 10rem;
+    color: rgb(0, 0, 0);
+    padding: 15px 57px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    cursor: pointer;}
 
-.pi-download{
+.pi-th-large{
     background-color: #ffffff; /* Green */
     border: none;
     color: rgb(0, 0, 0);
@@ -260,8 +273,19 @@ img.flag {
     font-size: 22px;
     cursor: pointer;
 }
-.pi-download:hover{
-    background-color: #9d9e9d;
+.pi-th-large:hover{
+    background: linear-gradient(120deg, #6366F1,#6366F1);
+    overflow: hidden;
+    background-color: #000000; 
+    border: none;
+    border-radius: 10rem;
+    color: rgb(0, 0, 0);
+    padding: 15px 57px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .p-sidebar .p-sidebar-header .p-sidebar-close, .p-sidebar .p-sidebar-header .p-sidebar-icon {
@@ -287,11 +311,9 @@ img.flag {
     cursor: pointer;
 }
 .pi-sign-out:hover{
-    margin: 0;
-    padding: 0;
     background: linear-gradient(120deg, #6366F1,#6366F1);
     overflow: hidden;
-    background-color: #ffffff; 
+    background-color: #000000; 
     border: none;
     border-radius: 10rem;
     color: rgb(0, 0, 0);
