@@ -23,6 +23,7 @@ export const Register = () => {
         name: "",
         email: "",
         password: "",
+        confirmPassword: "",
     };
     const {
         control,
@@ -56,10 +57,10 @@ export const Register = () => {
                 });
         } catch (err) { }
     };
-    const getFormErrorMessage = (firstName) => {
+    const getFormErrorMessage = (Name) => {
         return (
-            errors[firstName] && (
-                <small className="p-error">{errors[firstName].message}</small>
+            errors[Name] && (
+                <small className="p-error">{errors[Name].message}</small>
             )
         );
     };
@@ -129,7 +130,7 @@ export const Register = () => {
                                     htmlFor="name"
                                     className={classNames({ "p-error": errors.name })}
                                 >
-                                    name*
+                                    Name*
                                 </label>
                             </span>
                             {getFormErrorMessage("name")}
@@ -215,6 +216,33 @@ export const Register = () => {
                                 </label>
                             </span>
                             {getFormErrorMessage("password")}
+                        </div>
+                        <div className="field">
+                            <span className="p-float-label">
+                                <Controller
+                                    name="confirmPassword"
+                                    control={control}
+                                    rules={{ required: "confirmPassword is required." }}
+                                    render={({ field, fieldState }) => (
+                                        <Password
+                                            feedback={false}
+                                            id={field.name}
+                                            {...field}
+                                            toggleMask
+                                            className={classNames({
+                                                "p-invalid": fieldState.invalid,
+                                            })}
+                                        />
+                                    )}
+                                />
+                                <label
+                                    htmlFor="confirmPassword"
+                                    className={classNames({ "p-error": errors.confirmPassword })}
+                                >
+                                    confirmPassword*
+                                </label>
+                            </span>
+                            {getFormErrorMessage("confirmPassword")}
                         </div>
                         <Button
                             onClick={HandleSignUp}

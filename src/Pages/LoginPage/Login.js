@@ -17,6 +17,7 @@ export const Login = () => {
     const defaultValues = {
         email: "",
         password: "",
+        rememberMe: false
     };
     const {
         control,
@@ -64,7 +65,7 @@ export const Login = () => {
                                     name="email"
                                     control={control}
                                     rules={{
-                                        required: "Email Gereklidir.",
+                                        required: "Email required.",
                                         pattern: {
                                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                                             message: "Geçersiz Email. E.g. örnek@email.com",
@@ -94,7 +95,7 @@ export const Login = () => {
                                 <Controller
                                     name="password"
                                     control={control}
-                                    rules={{ required: "Şifre Gereklidir." }}
+                                    rules={{ required: "Password required." }}
                                     render={({ field, fieldState }) => (
                                         <Password
                                             id={field.name}
@@ -110,12 +111,16 @@ export const Login = () => {
                                     htmlFor="password"
                                     className={classNames({ "p-error": errors.password })}
                                 >
-                                    Şifre*
+                                    Password*
                                 </label>
                             </span>
                             {getFormErrorMessage("password")}
+
                         </div>
-                        <Button type="submit" label="Login" className="mt-2" />
+                        <input type="checkbox" value="lsRememberMe" id="rememberMe" ></input>
+                        <label for="rememberMe">RememberMe</label>
+
+                        <Button type="submit" label="Login" className="mt-2" onclick="lsRememberMe()" />
                         Dont have an account?
                         <br />
                     </form>

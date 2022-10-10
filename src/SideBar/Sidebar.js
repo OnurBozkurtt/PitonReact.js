@@ -14,7 +14,7 @@ const SideBar = () => {
     const [visibleLeft, setVisibleLeft] = useState(false);
     const Logout = () => {
         localStorage.clear();
-        window.location.href = 'Login';
+        window.location.href = 'login';
 
     }
     return (
