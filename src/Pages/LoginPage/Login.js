@@ -17,7 +17,7 @@ export const Login = () => {
     const defaultValues = {
         email: "",
         password: "",
-        rememberMe: false
+        // rememberMe: false
     };
     const {
         control,

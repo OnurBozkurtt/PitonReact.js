@@ -9,7 +9,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { Tooltip } from 'primereact/tooltip';
-import PaginatorRapor from './Pagionator';
+import PaginatorProduct from './Pagionator';
 import axios from 'axios';
 import productFunc from '../../Services/ProductService/productFunc';
 import productAuthService from '../../Services/ProductService/productAuthService';
@@ -103,7 +103,7 @@ export const Product = () => {
                         cols.map((col, index) => <Column key={index} field={col.field} header={col.header} />)
                     }
                 </DataTable>
-                <PaginatorRapor value={products} />
+                <PaginatorProduct value={products} />
             </div>
         </div>
     );
