@@ -246,7 +246,7 @@ export const Register = () => {
                                 </label>
                             </span>
                             {getFormErrorMessage("confirmPassword")}
-                        </div> */}
+                        </div>  */}
                         <Button
                             onClick={HandleSignUp}
                             type="submit"
